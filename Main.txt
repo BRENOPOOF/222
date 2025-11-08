@@ -1459,6 +1459,18 @@ function redzlib:SetTheme(NewTheme)
 			Val.Instance[GetColor(Val.Instance)] = Theme["Color Dark Text"]
 		elseif Val.Type == "ScrollBar" then
 			Val.Instance[GetColor(Val.Instance)] = Theme["Color Theme"]
+		elseif Val.Type == "Icon" then
+			Val.Instance.ImageColor3 = Theme["Color Theme"]
+		elseif Val.Type == "Button" then
+			Val.Instance.BackgroundColor3 = Theme["Color Hub 2"]
+		elseif Val.Type == "Toggle" then
+			Val.Instance.BackgroundColor3 = Theme["Color Theme"]
+		elseif Val.Type == "Slider" then
+			Val.Instance.BackgroundColor3 = Theme["Color Theme"]
+		elseif Val.Type == "Dropdown" then
+			Val.Instance.BackgroundColor3 = Theme["Color Stroke"]
+		elseif Val.Type == "TextBox" then
+			Val.Instance.BackgroundColor3 = Theme["Color Stroke"]
 		end
 	end)
 end
@@ -2195,7 +2207,7 @@ function redzlib:MakeWindow(Configs)
 			Image = TIcon or "",
 			BackgroundTransparency = 1,
 			ImageTransparency = (FirstTab and 0.3) or 0
-		}), "Text")
+		}), "Icon")
 		
 		local Selected = InsertTheme(Create("Frame", TabSelect, {
 			Size = FirstTab and UDim2.new(0, 4, 0, 4) or UDim2.new(0, 4, 0, 13),
@@ -2347,13 +2359,13 @@ function redzlib:MakeWindow(Configs)
 			
 			local FButton, LabelFunc = ButtonFrame(Container, BName, BDescription, UDim2.new(1, -20))
 
-			local ButtonIcon = Create("ImageLabel", FButton, {
+			local ButtonIcon = InsertTheme(Create("ImageLabel", FButton, {
 				Size = UDim2.new(0, 14, 0, 14),
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundTransparency = 1,
 				Image = "rbxassetid://6422245657"
-			})
+			}), "Icon")
 			
 			FButton.Activated:Connect(function()
 				Funcs:FireCallback(Callback)
@@ -2405,7 +2417,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(0, 0, 0.5),
 				AnchorPoint = Vector2.new(0, 0.5),
 				BackgroundColor3 = Theme["Color Theme"]
-			}), "Theme")Make("Corner", Toggle, UDim.new(0.5, 0))
+			}), "Toggle")Make("Corner", Toggle, UDim.new(0.5, 0))
 			
 			local WaitClick
 			local function SetToggle(Val)
@@ -2468,7 +2480,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundColor3 = Theme["Color Stroke"]
-			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			}), "Dropdown")Make("Corner", SelectedFrame, UDim.new(0, 4))
 			
 			local ActiveLabel = InsertTheme(Create("TextLabel", SelectedFrame, {
 				Size = UDim2.new(0.85, 0, 0.85, 0),
@@ -2481,13 +2493,13 @@ function redzlib:MakeWindow(Configs)
 				Text = "..."
 			}), "Text")
 			
-			local Arrow = Create("ImageLabel", SelectedFrame, {
+			local Arrow = InsertTheme(Create("ImageLabel", SelectedFrame, {
 				Size = UDim2.new(0, 15, 0, 15),
 				Position = UDim2.new(0, -5, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				Image = "rbxassetid://10709791523",
 				BackgroundTransparency = 1
-			})
+			}), "Icon")
 			
 			local NoClickFrame = Create("TextButton", DropdownHolder, {
 				Name = "AntiClick",
@@ -2831,7 +2843,7 @@ function redzlib:MakeWindow(Configs)
 				BackgroundColor3 = Theme["Color Theme"],
 				Size = UDim2.fromScale(0.3, 1),
 				BorderSizePixel = 0
-			}), "Theme")Make("Corner", Indicator)
+			}), "Slider")Make("Corner", Indicator)
 			
 			local SliderIcon = Create("Frame", SliderBar, {
 				Size = UDim2.new(0, 6, 0, 12),
@@ -2951,7 +2963,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundColor3 = Theme["Color Stroke"]
-			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			}), "TextBox")Make("Corner", SelectedFrame, UDim.new(0, 4))
 			
 			local TextBoxInput = InsertTheme(Create("TextBox", SelectedFrame, {
 				Size = UDim2.new(0.85, 0, 0.85, 0),
@@ -2966,13 +2978,13 @@ function redzlib:MakeWindow(Configs)
 				Text = ""
 			}), "Text")
 			
-			local Pencil = Create("ImageLabel", SelectedFrame, {
+			local Pencil = InsertTheme(Create("ImageLabel", SelectedFrame, {
 				Size = UDim2.new(0, 12, 0, 12),
 				Position = UDim2.new(0, -5, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				Image = "rbxassetid://15637081879",
 				BackgroundTransparency = 1
-			})
+			}), "Icon")
 			
 			local TextBox = {}
 			local function Input()
