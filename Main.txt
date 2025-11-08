@@ -80,6 +80,97 @@ local redzlib = {
 			["Color Dark Blue"] = Color3.fromRGB(140, 0, 210),
 			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
 			["Color Dark Cyan"] = Color3.fromRGB(160, 0, 220)
+		},
+		-- Novos temas adicionados
+		Yellow = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 45, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 0))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 30, 0),
+			["Color Stroke"] = Color3.fromRGB(120, 120, 0),
+			["Color Theme"] = Color3.fromRGB(220, 220, 0),
+			["Color Text"] = Color3.fromRGB(255, 255, 170),
+			["Color Dark Text"] = Color3.fromRGB(240, 240, 120),
+			["Color Dark Blue"] = Color3.fromRGB(210, 210, 0),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(220, 220, 0)
+		},
+		Green = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 25, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 45, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 25, 0))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(0, 30, 0),
+			["Color Stroke"] = Color3.fromRGB(0, 120, 0),
+			["Color Theme"] = Color3.fromRGB(0, 220, 0),
+			["Color Text"] = Color3.fromRGB(170, 255, 170),
+			["Color Dark Text"] = Color3.fromRGB(120, 240, 120),
+			["Color Dark Blue"] = Color3.fromRGB(0, 210, 0),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(0, 220, 0)
+		},
+		DarkBlue = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 45)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 25))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(0, 0, 30),
+			["Color Stroke"] = Color3.fromRGB(0, 0, 120),
+			["Color Theme"] = Color3.fromRGB(0, 0, 220),
+			["Color Text"] = Color3.fromRGB(170, 170, 255),
+			["Color Dark Text"] = Color3.fromRGB(120, 120, 240),
+			["Color Dark Blue"] = Color3.fromRGB(0, 0, 210),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(0, 0, 220)
+		},
+		Pink = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 0, 45)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 0, 25))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 0, 30),
+			["Color Stroke"] = Color3.fromRGB(120, 0, 120),
+			["Color Theme"] = Color3.fromRGB(220, 0, 220),
+			["Color Text"] = Color3.fromRGB(255, 170, 255),
+			["Color Dark Text"] = Color3.fromRGB(240, 120, 240),
+			["Color Dark Blue"] = Color3.fromRGB(210, 0, 210),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(220, 0, 220)
+		},
+		White = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 45, 45)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+			["Color Stroke"] = Color3.fromRGB(120, 120, 120),
+			["Color Theme"] = Color3.fromRGB(220, 220, 220),
+			["Color Text"] = Color3.fromRGB(255, 255, 255),
+			["Color Dark Text"] = Color3.fromRGB(240, 240, 240),
+			["Color Dark Blue"] = Color3.fromRGB(210, 210, 210),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(220, 220, 220)
+		},
+		Brown = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 15, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 25, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 15, 0))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 20, 0),
+			["Color Stroke"] = Color3.fromRGB(120, 80, 0),
+			["Color Theme"] = Color3.fromRGB(220, 150, 0),
+			["Color Text"] = Color3.fromRGB(255, 220, 170),
+			["Color Dark Text"] = Color3.fromRGB(240, 180, 120),
+			["Color Dark Blue"] = Color3.fromRGB(210, 140, 0),
+			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
+			["Color Dark Cyan"] = Color3.fromRGB(220, 150, 0)
 		}
 	},
 	Info = {
@@ -823,7 +914,7 @@ local redzlib = {
 			["sundim"] = "rbxassetid://10734973645",
 			["sunmedium"] = "rbxassetid://10734973778",
 			["sunmoon"] = "rbxassetid://10734973999",
-			["sunsnow"] = "rbxassetid://10734974130",
+				["sunsnow"] = "rbxassetid://10734974130",
 			["sunrise"] = "rbxassetid://10734974522",
 			["sunset"] = "rbxassetid://10734974689",
 			["superscript"] = "rbxassetid://10734974850",
@@ -1697,10 +1788,10 @@ function redzlib:MakeWindow(Configs)
 	})
 	
 	local ParticleConfig = {
-		MaxParticles = 30,
+		MaxParticles = 70,
 		SpawnRate = 0.1,
-		ParticleSize = {Min = 2, Max = 4},
-		ParticleSpeed = {Min = 6, Max = 12},
+		ParticleSize = {Min = 1, Max = 3},
+		ParticleSpeed = {Min = 2, Max = 3},
 		ParticleLifetime = 6
 	}
 
@@ -1868,7 +1959,7 @@ function redzlib:MakeWindow(Configs)
 		Name = "Minimize"
 	})
 	
-	-- Botão Personalizado com o Decal ID 129261498595427
+	-- Botão Personalizado para alternar temas
 	local CustomButton = SetProps(CloseButton:Clone(), {
 		Position = UDim2.new(1, -60, 0.5),
 		Image = "rbxassetid://129261498595427",
@@ -1887,15 +1978,10 @@ function redzlib:MakeWindow(Configs)
 	-- Função para alternar entre temas
 	local function ToggleTheme()
 		local currentTheme = redzlib.Save.Theme
-		local newTheme
-		
-		if currentTheme == "Blue" then
-			newTheme = "Red"
-		elseif currentTheme == "Red" then
-			newTheme = "Purple"
-		else
-			newTheme = "Blue"
-		end
+		local themes = {"Blue", "Red", "Purple", "Yellow", "Green", "DarkBlue", "Pink", "White", "Brown"}
+		local currentIndex = table.find(themes, currentTheme) or 1
+		local newIndex = currentIndex % #themes + 1
+		local newTheme = themes[newIndex]
 		
 		redzlib:SetTheme(newTheme)
 	end
@@ -2320,7 +2406,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundTransparency = 1,
-				Image = "rbxassetid://6422245657"
+				Image = "rbxassetid://"
 			})
 			
 			FButton.Activated:Connect(function()
