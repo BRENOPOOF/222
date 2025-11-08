@@ -51,7 +51,6 @@ local redzlib = {
 			["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
 			["Color Dark Cyan"] = Color3.fromRGB(0, 160, 220)
 		},
-		-- NOVOS TEMAS ADICIONADOS
 		Red = {
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 0)),
@@ -1237,7 +1236,7 @@ end
 
 AddEle("Corner", function(parent, CornerRadius)
 	local New = SetProps(Create("UICorner", parent, {
-		CornerRadius = CornerRadius or UDim.new(0, 7)
+		CornerRadius = CornerRadius or UDim.new(0, 12) -- Bordas mais arredondadas
 	}), props)
 	return New
 end)
@@ -1333,7 +1332,7 @@ local function ButtonFrame(Instance, Title, Description, HolderSize)
 		Size = UDim2.new(1, 0, 0, 25),
 		AutomaticSize = "Y",
 		Name = "Option"
-	})Make("Corner", Frame, UDim.new(0, 6))
+	})Make("Corner", Frame, UDim.new(0, 8)) -- Bordas mais arredondadas
 	
 	LabelHolder = Create("Frame", Frame, {
 		AutomaticSize = "Y",
@@ -1613,7 +1612,7 @@ function redzlib:MakeWindow(Configs)
 	Make("Gradient", MainFrame, {
 		Rotation = 45
 	})MakeDrag(MainFrame)
-	local MainCorner = Make("Corner", MainFrame)
+	local MainCorner = Make("Corner", MainFrame, UDim.new(0, 15)) -- Bordas mais arredondadas
 	local Components = Create("Folder", MainFrame, {
 		Name = "Components"
 	})
@@ -1869,13 +1868,38 @@ function redzlib:MakeWindow(Configs)
 		Name = "Minimize"
 	})
 	
+	-- Botão de Configuração (Themes)
+	local ConfigButton = SetProps(CloseButton:Clone(), {
+		Position = UDim2.new(1, -60, 0.5),
+		Image = "rbxassetid://10734950309", -- Ícone de configurações
+		Name = "Config"
+	})
+	
 	SetChildren(ButtonsFolder, {
 		CloseButton,
-		MinimizeButton
+		MinimizeButton,
+		ConfigButton
 	})
 	
 	local Minimized, SaveSize, WaitClick
 	local Window, FirstTab = {}, false
+	
+	-- Função para alternar entre temas
+	local function ToggleTheme()
+		local currentTheme = redzlib.Save.Theme
+		local newTheme
+		
+		if currentTheme == "Blue" then
+			newTheme = "Red"
+		elseif currentTheme == "Red" then
+			newTheme = "Purple"
+		else
+			newTheme = "Blue"
+		end
+		
+		redzlib:SetTheme(newTheme)
+	end
+	
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
 			Title = "Close",
@@ -1888,6 +1912,7 @@ function redzlib:MakeWindow(Configs)
 			}
 		})
 	end
+	
 	function Window:MinimizeBtn()
 		if WaitClick then return end
 		WaitClick = true
@@ -1919,10 +1944,11 @@ function redzlib:MakeWindow(Configs)
 		
 		WaitClick = false
 	end
+	
 	function Window:Minimize()
 		MainFrame.Visible = not MainFrame.Visible
 	end
-	
+
 	function Window:SetThemeParticles(enabled)
 		if enabled then
 			if not ParticleConnection then
@@ -2023,7 +2049,7 @@ function redzlib:MakeWindow(Configs)
 				BackgroundTransparency = 1,
 				TextWrapped = true
 			}), "DarkText")
-		})Make("Gradient", Frame, {Rotation = 270})Make("Corner", Frame)
+		})Make("Gradient", Frame, {Rotation = 270})Make("Corner", Frame, UDim.new(0, 12)) -- Bordas mais arredondadas
 		
 		local ButtonsHolder = Create("Frame", Frame, {
 			Size = UDim2.fromScale(1, 0.35),
@@ -2062,7 +2088,7 @@ function redzlib:MakeWindow(Configs)
 			
 			ButtonCount = ButtonCount + 1
 			local Button = Make("Button", ButtonsHolder)
-			Make("Corner", Button)
+			Make("Corner", Button, UDim.new(0, 8)) -- Bordas mais arredondadas
 			SetProps(Button, {
 				Text = Name,
 				Font = Enum.Font.GothamBold,
@@ -2115,7 +2141,7 @@ function redzlib:MakeWindow(Configs)
 		
 		local TabSelect = Make("Button", MainScroll, {
 			Size = UDim2.new(1, 0, 0, 24)
-		})Make("Corner", TabSelect)
+		})Make("Corner", TabSelect, UDim.new(0, 8)) -- Bordas mais arredondadas
 		
 		local LabelTitle = InsertTheme(Create("TextLabel", TabSelect, {
 			Size = UDim2.new(1, TIcon and -25 or -15, 1),
@@ -2410,7 +2436,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundColor3 = Theme["Color Stroke"]
-			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 6)) -- Bordas mais arredondadas
 			
 			local ActiveLabel = InsertTheme(Create("TextLabel", SelectedFrame, {
 				Size = UDim2.new(0.85, 0, 0.85, 0),
@@ -2447,7 +2473,7 @@ function redzlib:MakeWindow(Configs)
 				Name = "DropdownFrame",
 				ClipsDescendants = true,
 				Active = true
-			})Make("Corner", DropFrame)Make("Stroke", DropFrame)Make("Gradient", DropFrame, {Rotation = 60})
+			})Make("Corner", DropFrame, UDim.new(0, 8))Make("Stroke", DropFrame)Make("Gradient", DropFrame, {Rotation = 60})
 			
 			local ScrollFrame = InsertTheme(Create("ScrollingFrame", DropFrame, {
 				ScrollBarImageColor3 = Theme["Color Theme"],
@@ -2589,7 +2615,7 @@ function redzlib:MakeWindow(Configs)
 						Option.LastCB = tick()
 						
 						Selected[Option.Name] = Option.Stats
-						CallbackSelected()
+							CallbackSelected()
 					else
 						Option.LastCB = tick()
 						
@@ -2622,7 +2648,7 @@ function redzlib:MakeWindow(Configs)
 						Size = UDim2.new(1, 0, 0, 21),
 						Position = UDim2.new(0, 0, 0.5),
 						AnchorPoint = Vector2.new(0, 0.5)
-					})Make("Corner", Button, UDim.new(0, 4))
+					})Make("Corner", Button, UDim.new(0, 6)) -- Bordas mais arredondadas
 					
 					local IsSelected = InsertTheme(Create("Frame", Button, {
 						Position = UDim2.new(0, 1, 0.5),
@@ -2767,13 +2793,13 @@ function redzlib:MakeWindow(Configs)
 				Size = UDim2.new(1, -20, 0, 6),
 				Position = UDim2.new(0.5, 0, 0.5),
 				AnchorPoint = Vector2.new(0.5, 0.5)
-			}), "Stroke")Make("Corner", SliderBar)
+			}), "Stroke")Make("Corner", SliderBar, UDim.new(0.5, 0)) -- Bordas mais arredondadas
 			
 			local Indicator = InsertTheme(Create("Frame", SliderBar, {
 				BackgroundColor3 = Theme["Color Theme"],
 				Size = UDim2.fromScale(0.3, 1),
 				BorderSizePixel = 0
-			}), "Theme")Make("Corner", Indicator)
+			}), "Theme")Make("Corner", Indicator, UDim.new(0.5, 0)) -- Bordas mais arredondadas
 			
 			local SliderIcon = Create("Frame", SliderBar, {
 				Size = UDim2.new(0, 6, 0, 12),
@@ -2781,7 +2807,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.fromScale(0.3, 0.5),
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				BackgroundTransparency = 0.2
-			})Make("Corner", SliderIcon)
+			})Make("Corner", SliderIcon, UDim.new(0.5, 0)) -- Bordas mais arredondadas
 			
 			local LabelVal = InsertTheme(Create("TextLabel", SliderHolder, {
 				Size = UDim2.new(0, 14, 0, 14),
@@ -2893,7 +2919,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundColor3 = Theme["Color Stroke"]
-			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 6)) -- Bordas mais arredondadas
 			
 			local TextBoxInput = InsertTheme(Create("TextBox", SelectedFrame, {
 				Size = UDim2.new(0.85, 0, 0.85, 0),
@@ -2974,7 +3000,7 @@ function redzlib:MakeWindow(Configs)
 				BackgroundColor3 = Theme["Color Hub 2"],
 				ClipsDescendants = true
 			}), "Frame")
-			Make("Corner", MainFrame, UDim.new(0, 12))
+			Make("Corner", MainFrame, UDim.new(0, 12)) -- Bordas mais arredondadas
 			Make("Stroke", MainFrame)
 			
 			local BannerArea = Create("ImageLabel", MainFrame, {
@@ -2984,7 +3010,7 @@ function redzlib:MakeWindow(Configs)
 				BackgroundTransparency = BannerImage ~= "" and 1 or 0,
 				ScaleType = Enum.ScaleType.Crop
 			})
-			Make("Corner", BannerArea, UDim.new(0, 12))
+			Make("Corner", BannerArea, UDim.new(0, 12)) -- Bordas mais arredondadas
 			
 			if BannerImage == "" then
 				local BannerGradient = Create("UIGradient", BannerArea, {
@@ -3004,7 +3030,7 @@ function redzlib:MakeWindow(Configs)
 				BackgroundTransparency = Logo == "" and 1 or 0,
 				BackgroundColor3 = Theme["Color Hub 2"]
 			})
-			Make("Corner", ServerIcon, UDim.new(0, 8))
+			Make("Corner", ServerIcon, UDim.new(0, 8)) -- Bordas mais arredondadas
 			if Logo ~= "" then
 				Make("Stroke", ServerIcon, nil, Theme["Color Hub 2"], 2.2)
 			end
@@ -3118,7 +3144,7 @@ function redzlib:MakeWindow(Configs)
 				BackgroundColor3 = Color3.fromRGB(0, 150, 220),
 				TextColor3 = Theme["Color Text"]
 			}), "Text")
-			Make("Corner", JoinButton, UDim.new(0.5, 0))
+			Make("Corner", JoinButton, UDim.new(0.5, 0)) -- Bordas mais arredondadas
 			
 			local clickCooldown = 0
 			JoinButton.Activated:Connect(function()
@@ -3160,69 +3186,12 @@ function redzlib:MakeWindow(Configs)
 			return DiscordInvite
 		end
 		
-		-- NOVA FUNÇÃO: ADICIONAR BOTÃO DE TEMA
-		function Tab:AddThemeButton(Configs)
-			local BName = Configs[1] or Configs.Name or Configs.Title or "Change Theme"
-			local BDescription = Configs.Desc or Configs.Description or "Change the interface theme"
-			
-			local FButton, LabelFunc = ButtonFrame(Container, BName, BDescription, UDim2.new(1, -20))
-
-			local ThemeIcon = Create("ImageLabel", FButton, {
-				Size = UDim2.new(0, 14, 0, 14),
-				Position = UDim2.new(1, -10, 0.5),
-				AnchorPoint = Vector2.new(1, 0.5),
-				BackgroundTransparency = 1,
-				Image = "rbxassetid://10734910430" -- Palette icon
-			})
-			
-			local currentThemeIndex = 1
-			local themes = {"Blue", "Red", "Purple"}
-			
-			-- Encontrar o índice do tema atual
-			for i, themeName in ipairs(themes) do
-				if themeName == redzlib.Save.Theme then
-					currentThemeIndex = i
-					break
-				end
-			end
-			
-			FButton.Activated:Connect(function()
-				-- Ciclar entre os temas
-				currentThemeIndex = currentThemeIndex + 1
-				if currentThemeIndex > #themes then
-					currentThemeIndex = 1
-				end
-				
-				local newTheme = themes[currentThemeIndex]
-				redzlib:SetTheme(newTheme)
-				
-				-- Feedback visual
-				LabelFunc:SetTitle(BName .. " (" .. newTheme .. ")")
-				CreateTween({ThemeIcon, "Rotation", ThemeIcon.Rotation + 180, 0.3})
-			end)
-			
-			local ThemeButton = {}
-			function ThemeButton:Visible(...) Funcs:ToggleVisible(FButton, ...) end
-			function ThemeButton:Destroy() FButton:Destroy() end
-			function ThemeButton:SetTheme(themeName)
-				if table.find(themes, themeName) then
-					redzlib:SetTheme(themeName)
-					currentThemeIndex = table.find(themes, themeName)
-					LabelFunc:SetTitle(BName .. " (" .. themeName .. ")")
-				end
-			end
-			
-			-- Definir título inicial com tema atual
-			LabelFunc:SetTitle(BName .. " (" .. redzlib.Save.Theme .. ")")
-			
-			return ThemeButton
-		end
-		
 		return Tab
 	end
 	
 	CloseButton.Activated:Connect(Window.CloseBtn)
 	MinimizeButton.Activated:Connect(Window.MinimizeBtn)
+	ConfigButton.Activated:Connect(ToggleTheme) -- Conectar o botão de configuração à função de alternar temas
 
 	return Window
 end
