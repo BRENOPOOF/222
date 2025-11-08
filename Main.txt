@@ -1951,28 +1951,28 @@ function redzlib:MakeWindow(Configs)
 	
 function Window:ConfigBtn()
 	local ConfigDialog = Window:Dialog({
-		Title = "🎨 Configurações de Tema",
+		Title = "Configurações de Tema",
 		Text = "Escolha o tema para personalizar a interface:",
 		Options = {
-			{"🔴 Red", function()
+			{"Red", function()
 				redzlib:SetTheme("Red")
 			end},
-			{"🔵 Blue", function()
+			{"Blue", function()
 				redzlib:SetTheme("Blue")
 			end},
-			{"🟣 Purple", function()
+			{"Purple", function()
 				redzlib:SetTheme("Purple")
 			end},
-			{"🟢 Green", function()
+			{"Green", function()
 				redzlib:SetTheme("Green")
 			end},
-			{"💖 Pink", function()
+			{"Pink", function()
 				redzlib:SetTheme("Pink")
 			end},
-			{"🟡 Yellow", function()
+			{"Yellow", function()
 				redzlib:SetTheme("Yellow")
 			end},
-			{"❌ Cancelar"}
+			{"Cancelar"}
 		}
 	})
 end
@@ -2024,8 +2024,8 @@ function Window:Dialog(Configs)
 	
 	local ButtonsHolder = Create("Frame", Frame, {
 		Size = UDim2.new(1, -20, 0, 120),  -- Altura fixa para os botões
-		Position = UDim2.fromScale(0.5, 0.85),
-		AnchorPoint = Vector2.new(0.5, 0.85),
+		Position = UDim2.fromScale(0.5, 0.75),  -- MODIFICADO: de 0.85 para 0.75 (mais para cima)
+		AnchorPoint = Vector2.new(0.5, 0.75),  -- MODIFICADO: de 0.85 para 0.75 (mais para cima)
 		BackgroundTransparency = 1
 	}, {
 		Create("UIListLayout", {
