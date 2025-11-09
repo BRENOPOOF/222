@@ -50,21 +50,6 @@ Blue = {
 	["Color Dark Blue"] = Color3.fromRGB(0, 140, 210),
 	["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
 	["Color Dark Cyan"] = Color3.fromRGB(0, 160, 220)
-},
-Red = {
-	["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 0)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 0, 0)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 0, 0))
-	}),
-	["Color Hub 2"] = Color3.fromRGB(30, 0, 0),
-	["Color Stroke"] = Color3.fromRGB(120, 0, 0),
-	["Color Theme"] = Color3.fromRGB(220, 0, 0),
-	["Color Text"] = Color3.fromRGB(255, 170, 170),
-	["Color Dark Text"] = Color3.fromRGB(240, 120, 120),
-	["Color Dark Blue"] = Color3.fromRGB(210, 0, 0),
-	["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
-	["Color Dark Cyan"] = Color3.fromRGB(220, 0, 0)
 }
 	},
 	Info = {
@@ -1853,36 +1838,13 @@ function redzlib:MakeWindow(Configs)
 		Name = "Minimize"
 	})
 	
-	-- Botão para alternar tema (azul/vermelho)
-	local ThemeToggleButton = SetProps(CloseButton:Clone(), {
-		Position = UDim2.new(1, -60, 0.5),
-		Image = "rbxassetid://10734966248", -- Ícone de estrela
-		Name = "ThemeToggle",
-		BackgroundColor3 = Theme["Color Theme"],
-		BackgroundTransparency = 0
-	})
-	Make("Corner", ThemeToggleButton, UDim.new(0, 4))
-	
 	SetChildren(ButtonsFolder, {
 		CloseButton,
-		MinimizeButton,
-		ThemeToggleButton
+		MinimizeButton
 	})
 	
 	local Minimized, SaveSize, WaitClick
 	local Window, FirstTab = {}, false
-	
-	-- Função para alternar entre temas azul e vermelho
-	local function ToggleTheme()
-		local currentTheme = redzlib.Save.Theme
-		local newTheme = currentTheme == "Blue" and "Red" or "Blue"
-		redzlib:SetTheme(newTheme)
-		
-		-- Atualizar cor do botão de tema
-		ThemeToggleButton.BackgroundColor3 = Theme["Color Theme"]
-	end
-	
-	ThemeToggleButton.Activated:Connect(ToggleTheme)
 	
 	function Window:CloseBtn()
 		local Dialog = Window:Dialog({
