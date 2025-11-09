@@ -14,42 +14,42 @@ local redzlib = {
 	Themes = {
 	Darker = {
 	["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 15, 25)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 30, 45)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 15, 25))
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 0)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 0, 0)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 0, 0))
 	}),
-	["Color Hub 2"] = Color3.fromRGB(0, 20, 30),
-	["Color Stroke"] = Color3.fromRGB(0, 80, 120),
-	["Color Theme"] = Color3.fromRGB(0, 150, 220),
-	["Color Text"] = Color3.fromRGB(170, 230, 255),
-	["Color Dark Text"] = Color3.fromRGB(120, 200, 240)
+	["Color Hub 2"] = Color3.fromRGB(30, 0, 0),
+	["Color Stroke"] = Color3.fromRGB(120, 0, 0),
+	["Color Theme"] = Color3.fromRGB(220, 0, 0),
+	["Color Text"] = Color3.fromRGB(255, 170, 170),
+	["Color Dark Text"] = Color3.fromRGB(240, 120, 120)
 },
 Dark = {
 	["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 18, 28)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 35, 50)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 18, 28))
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 0, 0)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(50, 0, 0)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(28, 0, 0))
 	}),
-	["Color Hub 2"] = Color3.fromRGB(0, 25, 35),
-	["Color Stroke"] = Color3.fromRGB(0, 100, 150),
-	["Color Theme"] = Color3.fromRGB(0, 170, 255),
-	["Color Text"] = Color3.fromRGB(180, 240, 255),
-	["Color Dark Text"] = Color3.fromRGB(140, 220, 255)
+	["Color Hub 2"] = Color3.fromRGB(35, 0, 0),
+	["Color Stroke"] = Color3.fromRGB(150, 0, 0),
+	["Color Theme"] = Color3.fromRGB(255, 0, 0),
+	["Color Text"] = Color3.fromRGB(255, 180, 180),
+	["Color Dark Text"] = Color3.fromRGB(255, 140, 140)
 },
-Blue = {
+Red = {
 	["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 20, 30)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 40, 60)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 20, 30))
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 0, 0)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(60, 0, 0)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 0, 0))
 	}),
-	["Color Hub 2"] = Color3.fromRGB(0, 30, 45),
-	["Color Stroke"] = Color3.fromRGB(0, 120, 180),
-	["Color Theme"] = Color3.fromRGB(0, 180, 255),
-	["Color Text"] = Color3.fromRGB(190, 240, 255),
-	["Color Dark Text"] = Color3.fromRGB(150, 220, 255),
-	["Color Dark Blue"] = Color3.fromRGB(0, 140, 210),
+	["Color Hub 2"] = Color3.fromRGB(45, 0, 0),
+	["Color Stroke"] = Color3.fromRGB(180, 0, 0),
+	["Color Theme"] = Color3.fromRGB(255, 0, 0),
+	["Color Text"] = Color3.fromRGB(255, 190, 190),
+	["Color Dark Text"] = Color3.fromRGB(255, 150, 150),
+	["Color Dark Red"] = Color3.fromRGB(210, 0, 0),
 	["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
-	["Color Dark Cyan"] = Color3.fromRGB(0, 160, 220)
+	["Color Dark Crimson"] = Color3.fromRGB(220, 0, 0)
 }
 	},
 	Info = {
@@ -58,7 +58,7 @@ Blue = {
 	Save = {
 		UISize = {550, 380},
 		TabSize = 160,
-		Theme = "Blue"
+		Theme = "Red"
 	},
 	Settings = {},
 	Connection = {},
@@ -1440,8 +1440,8 @@ function redzlib:Notify(Configs)
 	local Image = Configs.Image or "rbxassetid://113449060491896"
 	
 	local Colors = {
-		Info = Color3.fromRGB(0, 150, 220),
-		Success = Color3.fromRGB(0, 180, 120),
+		Info = Color3.fromRGB(220, 0, 0),
+		Success = Color3.fromRGB(120, 180, 0),
 		Warning = Color3.fromRGB(255, 193, 7),
 		Error = Color3.fromRGB(255, 50, 50)
 	}
@@ -1615,7 +1615,7 @@ function redzlib:MakeWindow(Configs)
 			AnchorPoint = Vector2.new(0, 1),
 			Position = UDim2.new(1, 5, 0.9),
 			Text = WMiniText,
-			TextColor3 = Theme["Color Dark Cyan"],
+			TextColor3 = Theme["Color Dark Crimson"],
 			BackgroundTransparency = 1,
 			TextXAlignment = "Left",
 			TextYAlignment = "Bottom",
