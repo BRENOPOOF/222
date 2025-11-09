@@ -14,42 +14,42 @@ local redzlib = {
 	Themes = {
 	Darker = {
 	["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 0, 0)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(45, 0, 0)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 0, 0))
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(15, 0, 25)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(30, 0, 45)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(15, 0, 25))
 	}),
-	["Color Hub 2"] = Color3.fromRGB(30, 0, 0),
-	["Color Stroke"] = Color3.fromRGB(120, 0, 0),
-	["Color Theme"] = Color3.fromRGB(220, 0, 0),
-	["Color Text"] = Color3.fromRGB(255, 170, 170),
-	["Color Dark Text"] = Color3.fromRGB(240, 120, 120)
+	["Color Hub 2"] = Color3.fromRGB(20, 0, 30),
+	["Color Stroke"] = Color3.fromRGB(80, 0, 120),
+	["Color Theme"] = Color3.fromRGB(150, 0, 220),
+	["Color Text"] = Color3.fromRGB(230, 170, 255),
+	["Color Dark Text"] = Color3.fromRGB(200, 120, 240)
 },
 Dark = {
 	["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(28, 0, 0)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(50, 0, 0)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(28, 0, 0))
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(18, 0, 28)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(35, 0, 50)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(18, 0, 28))
 	}),
-	["Color Hub 2"] = Color3.fromRGB(35, 0, 0),
-	["Color Stroke"] = Color3.fromRGB(150, 0, 0),
-	["Color Theme"] = Color3.fromRGB(255, 0, 0),
-	["Color Text"] = Color3.fromRGB(255, 180, 180),
-	["Color Dark Text"] = Color3.fromRGB(255, 140, 140)
+	["Color Hub 2"] = Color3.fromRGB(25, 0, 35),
+	["Color Stroke"] = Color3.fromRGB(100, 0, 150),
+	["Color Theme"] = Color3.fromRGB(170, 0, 255),
+	["Color Text"] = Color3.fromRGB(240, 180, 255),
+	["Color Dark Text"] = Color3.fromRGB(220, 140, 255)
 },
-Red = {
+Blue = {
 	["Color Hub 1"] = ColorSequence.new({
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 0, 0)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(60, 0, 0)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 0, 0))
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(20, 0, 30)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(40, 0, 60)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(20, 0, 30))
 	}),
-	["Color Hub 2"] = Color3.fromRGB(45, 0, 0),
-	["Color Stroke"] = Color3.fromRGB(180, 0, 0),
-	["Color Theme"] = Color3.fromRGB(255, 0, 0),
-	["Color Text"] = Color3.fromRGB(255, 190, 190),
-	["Color Dark Text"] = Color3.fromRGB(255, 150, 150),
-	["Color Dark Red"] = Color3.fromRGB(210, 0, 0),
+	["Color Hub 2"] = Color3.fromRGB(30, 0, 45),
+	["Color Stroke"] = Color3.fromRGB(120, 0, 180),
+	["Color Theme"] = Color3.fromRGB(180, 0, 255),
+	["Color Text"] = Color3.fromRGB(240, 190, 255),
+	["Color Dark Text"] = Color3.fromRGB(220, 150, 255),
+	["Color Dark Blue"] = Color3.fromRGB(140, 0, 210),
 	["Color Hub 9"] = Color3.fromRGB(0, 0, 0),
-	["Color Dark Crimson"] = Color3.fromRGB(220, 0, 0)
+	["Color Dark Cyan"] = Color3.fromRGB(160, 0, 220)
 }
 	},
 	Info = {
@@ -58,7 +58,7 @@ Red = {
 	Save = {
 		UISize = {550, 380},
 		TabSize = 160,
-		Theme = "Red"
+		Theme = "Blue"
 	},
 	Settings = {},
 	Connection = {},
@@ -1440,8 +1440,8 @@ function redzlib:Notify(Configs)
 	local Image = Configs.Image or "rbxassetid://113449060491896"
 	
 	local Colors = {
-		Info = Color3.fromRGB(220, 0, 0),
-		Success = Color3.fromRGB(120, 180, 0),
+		Info = Color3.fromRGB(150, 0, 220),
+		Success = Color3.fromRGB(120, 0, 180),
 		Warning = Color3.fromRGB(255, 193, 7),
 		Error = Color3.fromRGB(255, 50, 50)
 	}
@@ -1615,7 +1615,7 @@ function redzlib:MakeWindow(Configs)
 			AnchorPoint = Vector2.new(0, 1),
 			Position = UDim2.new(1, 5, 0.9),
 			Text = WMiniText,
-			TextColor3 = Theme["Color Dark Crimson"],
+			TextColor3 = Theme["Color Dark Cyan"],
 			BackgroundTransparency = 1,
 			TextXAlignment = "Left",
 			TextYAlignment = "Bottom",
@@ -2266,7 +2266,7 @@ function redzlib:MakeWindow(Configs)
 				Position = UDim2.new(1, -10, 0.5),
 				AnchorPoint = Vector2.new(1, 0.5),
 				BackgroundTransparency = 1,
-				Image = "rbxassetid://8355880961"
+				Image = "rbxassetid://6422245657"
 			})
 			
 			FButton.Activated:Connect(function()
@@ -2931,7 +2931,7 @@ function redzlib:MakeWindow(Configs)
 			local InviteLabel = InsertTheme(Create("TextLabel", InviteHolder, {
 				Size = UDim2.new(1, 0, 0, 15),
 				Position = UDim2.new(0, 5),
-				TextColor3 = Color3.fromRGB(0, 150, 220),
+				TextColor3 = Color3.fromRGB(150, 0, 220),
 				Font = Enum.Font.GothamBold,
 				TextXAlignment = "Left",
 				BackgroundTransparency = 1,
@@ -2952,7 +2952,7 @@ function redzlib:MakeWindow(Configs)
 			local BannerArea = Create("ImageLabel", MainFrame, {
 				Size = UDim2.new(1, 0, 0.28, 0),
 				Image = BannerImage,
-				BackgroundColor3 = Color3.fromRGB(0, 150, 220),
+				BackgroundColor3 = Color3.fromRGB(150, 0, 220),
 				BackgroundTransparency = BannerImage ~= "" and 1 or 0,
 				ScaleType = Enum.ScaleType.Crop
 			})
@@ -2962,8 +2962,8 @@ function redzlib:MakeWindow(Configs)
 				local BannerGradient = Create("UIGradient", BannerArea, {
 					Rotation = -15,
 					Color = ColorSequence.new({
-						ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 80, 140)),
-						ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 120, 200))
+						ColorSequenceKeypoint.new(0, Color3.fromRGB(80, 0, 140)),
+						ColorSequenceKeypoint.new(1, Color3.fromRGB(120, 0, 200))
 					})
 				})
 			end
@@ -3040,11 +3040,11 @@ function redzlib:MakeWindow(Configs)
 				end
 				
 				if MembersOnline > 0 then
-					CreateStatusIndicator(Color3.fromRGB(0, 180, 120), MembersOnline .. " Online")
+					CreateStatusIndicator(Color3.fromRGB(120, 0, 180), MembersOnline .. " Online")
 				end
 				
 				if TotalMembers > 0 then
-					CreateStatusIndicator(Color3.fromRGB(100, 150, 200), TotalMembers .. " Members")
+					CreateStatusIndicator(Color3.fromRGB(150, 100, 200), TotalMembers .. " Members")
 				end
 			end
 			
@@ -3087,7 +3087,7 @@ function redzlib:MakeWindow(Configs)
 				Text = "Join Server",
 				Font = Enum.Font.GothamBold,
 				TextSize = 10,
-				BackgroundColor3 = Color3.fromRGB(0, 150, 220),
+				BackgroundColor3 = Color3.fromRGB(150, 0, 220),
 				TextColor3 = Theme["Color Text"]
 			}), "Text")
 			Make("Corner", JoinButton, UDim.new(0.5, 0))
